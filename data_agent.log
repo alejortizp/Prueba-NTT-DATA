@@ -6,3 +6,30 @@
 2025-06-13 15:13:27,734 - __main__ - INFO - Columnas: ['Fecha', 'Country', 'Ventas', 'Coffee type']
 2025-06-13 15:13:27,734 - __main__ - ERROR - Error al cargar datos: This agent relies on access to a python repl tool which can execute arbitrary code. This can be dangerous and requires a specially sandboxed environment to be safely used. Please read the security notice in the doc-string of this function. You must opt-in to use this functionality by setting allow_dangerous_code=True.For general security guidelines, please see: https://python.langchain.com/docs/security/
 2025-06-13 15:13:27,734 - __main__ - ERROR - Error crítico: This agent relies on access to a python repl tool which can execute arbitrary code. This can be dangerous and requires a specially sandboxed environment to be safely used. Please read the security notice in the doc-string of this function. You must opt-in to use this functionality by setting allow_dangerous_code=True.For general security guidelines, please see: https://python.langchain.com/docs/security/
+2025-06-13 18:55:58,479 - __main__ - INFO - DataAgent inicializado correctamente
+2025-06-13 18:55:58,485 - __main__ - INFO - Archivo cargado exitosamente: 1430 filas, 4 columnas
+2025-06-13 18:55:58,491 - __main__ - INFO - Columna 'Fecha' convertida a datetime
+2025-06-13 18:55:58,493 - __main__ - INFO - Preprocesamiento completado: 1430 filas restantes
+2025-06-13 18:55:58,494 - __main__ - INFO - Datos cargados: 1430 filas, 4 columnas
+2025-06-13 18:55:58,494 - __main__ - INFO - Columnas: ['Fecha', 'Country', 'Ventas', 'Coffee type']
+2025-06-13 18:55:58,494 - __main__ - ERROR - Error al cargar datos: This agent relies on access to a python repl tool which can execute arbitrary code. This can be dangerous and requires a specially sandboxed environment to be safely used. Please read the security notice in the doc-string of this function. You must opt-in to use this functionality by setting allow_dangerous_code=True.For general security guidelines, please see: https://python.langchain.com/docs/security/
+2025-06-13 18:55:58,501 - __main__ - ERROR - Error crítico: This agent relies on access to a python repl tool which can execute arbitrary code. This can be dangerous and requires a specially sandboxed environment to be safely used. Please read the security notice in the doc-string of this function. You must opt-in to use this functionality by setting allow_dangerous_code=True.For general security guidelines, please see: https://python.langchain.com/docs/security/
+2025-06-13 19:07:11,475 - __main__ - INFO - DataAgent inicializado correctamente
+2025-06-13 19:07:11,483 - __main__ - INFO - Archivo cargado exitosamente: 1430 filas, 4 columnas
+2025-06-13 19:07:11,489 - __main__ - INFO - Columna 'Fecha' convertida a datetime
+2025-06-13 19:07:11,491 - __main__ - INFO - Preprocesamiento completado: 1430 filas restantes
+2025-06-13 19:07:11,492 - __main__ - INFO - Datos cargados: 1430 filas, 4 columnas
+2025-06-13 19:07:11,492 - __main__ - INFO - Columnas: ['Fecha', 'Country', 'Ventas', 'Coffee type']
+2025-06-13 19:07:11,526 - __main__ - INFO - Agente configurado exitosamente
+2025-06-13 19:07:57,479 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-13 19:07:58,211 - __main__ - ERROR - Error procesando consulta: StructuredTool._run() got multiple values for argument 'self'
+2025-06-13 19:43:09,134 - __main__ - INFO - DataAgent inicializado correctamente
+2025-06-13 19:43:09,140 - __main__ - INFO - Archivo cargado exitosamente: 1430 filas, 4 columnas
+2025-06-13 19:43:09,147 - __main__ - INFO - Columna 'Fecha' convertida a datetime
+2025-06-13 19:43:09,150 - __main__ - INFO - Preprocesamiento completado: 1430 filas restantes
+2025-06-13 19:43:09,150 - __main__ - INFO - Datos cargados: 1430 filas, 4 columnas
+2025-06-13 19:43:09,150 - __main__ - INFO - Columnas: ['Fecha', 'Country', 'Ventas', 'Coffee type']
+2025-06-13 19:43:09,188 - __main__ - INFO - Agente configurado exitosamente
+2025-06-13 19:43:30,388 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-06-13 19:43:31,635 - __main__ - INFO - Gráfica guardada: plots/line_Ventas_de_Angola_y_Ecuador_a_través_de_los_años_20250613_194330.png
+2025-06-13 19:43:32,436 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"

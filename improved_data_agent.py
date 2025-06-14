@@ -37,6 +37,8 @@ class Config:
     max_rows_display: int = 10000
     figure_size: tuple = (12, 8)
     supported_plot_types: List[str] = field(default_factory=lambda: ['line', 'bar', 'scatter', 'histogram', 'boxplot'])
+    # Nueva configuración de seguridad
+    allow_dangerous_code: bool = True  # Cambio aquí para habilitar código
     
     def __post_init__(self):
         """Validación post-inicialización"""
@@ -156,7 +158,6 @@ class PlotGenerator:
     def __init__(self, config: Config):
         self.config = config
     
-    @tool
     def create_and_save_plot(
         self,
         plot_type: str = 'line',
@@ -370,14 +371,36 @@ class DataAgent:
     
     def _setup_agent(self) -> None:
         """Configura el agente de Pandas DataFrame"""
-        tools = [self.plot_generator.create_and_save_plot]
+        # Crear la herramienta correctamente
+        from langchain.tools import StructuredTool
         
+        plot_tool = StructuredTool.from_function(
+            func=self.plot_generator.create_and_save_plot,
+            name="create_and_save_plot",
+            description="""Genera y guarda una gráfica de los datos del DataFrame.
+            
+            Args:
+                plot_type: Tipo de gráfica ('line', 'bar', 'scatter', 'histogram', 'boxplot')
+                x_col: Columna para el eje X (opcional, se auto-detecta)
+                y_col: Columna para el eje Y (opcional, se auto-detecta)
+                hue_col: Columna para diferenciar series (opcional)
+                title: Título de la gráfica
+                filters: Filtros a aplicar en formato JSON (opcional)
+                
+            Returns:
+                Mensaje de éxito o error con la ruta del archivo generado
+            """
+        )
+        
+        tools = [plot_tool]
+        
+        # AQUÍ ESTÁ LA CORRECCIÓN PRINCIPAL
         self.agent = create_pandas_dataframe_agent(
             self.llm,
             self.df,
             verbose=True,
             agent_type="tool-calling",
-            allow_dangerous_code=False,  # Más seguro para producción
+            allow_dangerous_code=self.config.allow_dangerous_code,  # Ahora habilitado
             extra_tools=tools,
             max_iterations=10,
             early_stopping_method="generate"
@@ -449,6 +472,12 @@ def main():
     try:
         # Inicializar configuración
         config = Config()
+        
+        # Mensaje de advertencia sobre seguridad
+        print("⚠️  AVISO DE SEGURIDAD:")
+        print("   Este agente puede ejecutar código Python para análisis de datos.")
+        print("   Solo usa datos de fuentes confiables.")
+        print("   En producción, considera usar un entorno sandboxed.\n")
         
         # Crear agente
         agent = DataAgent(config)

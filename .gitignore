@@ -2,9 +2,9 @@
 coffe_db.parquet
 *.csv
 /mi_entorno
-main.py
 *.png
 *.jpg
 *.jpeg
 *.gif
 *.mp4
+/plots
